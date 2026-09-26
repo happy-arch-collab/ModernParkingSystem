@@ -1,0 +1,135 @@
+
+MODERN PARKING SYSTEM
+SYSTEM ALGORITHMS
+
+========================================
+1. VEHICLE ENTRY ALGORITHM
+========================================
+
+Purpose:
+To register a vehicle, check parking availability,
+and assign an available parking slot.
+
+START
+
+1. Display the parking system dashboard.
+2. Select Vehicle Entry.
+3. Enter vehicle registration number and vehicle type.
+4. Convert registration number to uppercase.
+5. Check whether the vehicle is already parked.
+
+6. IF the vehicle is already parked:
+      Display "This vehicle is already parked."
+      Return to vehicle entry page.
+
+7. ELSE:
+      Search for an available parking slot.
+
+8. IF no slot is available:
+      Display "Sorry, all parking slots are occupied."
+      Return to vehicle entry page.
+
+9. ELSE:
+      Check whether the vehicle exists in the database.
+
+10. IF the vehicle does not exist:
+       Register the vehicle in the database.
+
+11. Record vehicle ID, slot ID, and entry time.
+12. Set parking record status to Parked.
+13. Set parking slot status to Occupied.
+14. Save changes to the database.
+15. Display the assigned parking slot.
+16. Return to the dashboard.
+
+STOP
+
+
+========================================
+2. VEHICLE EXIT AND FEE CALCULATION
+========================================
+
+Purpose:
+To calculate parking duration and the amount payable.
+
+START
+
+1. Select Vehicle Exit.
+2. Enter vehicle registration number.
+3. Search for the vehicle's parking record.
+
+4. IF the record is Awaiting Payment:
+      Display the existing payment page.
+      Do not create another exit record.
+
+5. ELSE:
+      Search for a record with status Parked.
+
+6. IF no active parking record is found:
+      Display "No active parking record found."
+      Return to vehicle exit page.
+
+7. ELSE:
+      Record the current exit time.
+      Retrieve the entry time.
+      Calculate parking duration in minutes.
+
+8. Calculate the parking fee:
+
+      IF duration <= 30 minutes:
+          Fee = KSh 0
+
+      ELSE IF duration <= 120 minutes:
+          Fee = KSh 50
+
+      ELSE IF duration <= 240 minutes:
+          Fee = KSh 100
+
+      ELSE IF duration <= 360 minutes:
+          Fee = KSh 300
+
+      ELSE:
+          Fee = KSh 500
+
+9. Save exit time and fee.
+10. Change parking record status to Awaiting Payment.
+11. Keep the parking slot occupied.
+12. Display the payment page.
+
+STOP
+
+
+========================================
+3. PAYMENT PROCESSING ALGORITHM
+========================================
+
+Purpose:
+To record payment and release the parking slot.
+
+START
+
+1. Display the payment page.
+2. Select payment method.
+3. Enter transaction reference.
+4. Submit payment details.
+5. Retrieve parking record using its ID.
+
+6. IF the record is invalid or not Awaiting Payment:
+      Display "Invalid or already completed transaction."
+      Return to dashboard.
+
+7. ELSE:
+      Record payment amount.
+      Record payment method.
+      Record transaction reference.
+      Record payment time.
+      Set payment status to Paid.
+
+8. Change parking record status to Completed.
+9. Change parking slot status to Available.
+10. Change exit barrier status to Open.
+11. Save all changes to the database.
+12. Display payment success page.
+13. Show payment details and barrier status.
+
+STOP

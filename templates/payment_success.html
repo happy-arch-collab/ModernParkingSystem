@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Payment Successful</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<header>
+
+    <h1>Modern Parking System</h1>
+
+    <p>Payment Confirmation</p>
+
+</header>
+
+
+<main>
+
+    <div class="form-container">
+
+        <h2>Payment Confirmed</h2>
+
+        <p>
+            <strong>Amount Paid:</strong>
+            KSh {{ amount }}
+        </p>
+
+        <p>
+            <strong>Payment Method:</strong>
+            {{ payment_method }}
+        </p>
+
+        <p>
+            <strong>Transaction Reference:</strong>
+            {{ transaction_reference or "N/A" }}
+        </p>
+
+        <p>
+            <strong>Payment Time:</strong>
+            {{ payment_time }}
+        </p>
+
+        <hr>
+
+        <h2>
+            Exit Barrier: {{ barrier_status }}
+        </h2>
+
+        <p>
+            Payment has been confirmed.
+            The vehicle may now exit.
+        </p>
+
+        <a href="{{ url_for('dashboard') }}">
+            ← Return to Dashboard
+        </a>
+
+    </div>
+
+</main>
+
+</body>
+
+</html>

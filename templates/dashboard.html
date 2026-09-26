@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Modern Parking System</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <header>
+        <h1>Modern Parking System</h1>
+        <p>Parking Management Dashboard</p>
+    </header>
+
+    <main>
+
+       <div class="dashboard-actions">
+
+           <a href="{{ url_for('vehicle_entry') }}">
+               <button type="button">Vehicle Entry</button>
+           </a>
+
+           <a href="{{ url_for('vehicle_exit') }}">
+               <button type="button">Vehicle Exit</button>
+           </a>
+
+       </div>
+
+        <section class="summary">
+
+            <div class="summary-card">
+                <h3>Total Slots</h3>
+                <p>{{ slots|length }}</p>
+            </div>
+
+            <div class="summary-card available">
+                <h3>Available</h3>
+                <p>{{ available_count }}</p>
+            </div>
+
+            <div class="summary-card occupied">
+                <h3>Occupied</h3>
+                <p>{{ occupied_count }}</p>
+            </div>
+
+        </section>
+
+
+        <section class="parking-section">
+
+            <h2>Parking Slots</h2>
+
+            <div class="parking-grid">
+
+                {% for slot in slots %}
+
+                    <div class="parking-slot {{ slot['status']|lower }}">
+
+                        <div class="slot-number">
+                            {{ slot['slot_number'] }}
+                        </div>
+
+                        <div class="slot-status">
+                            {{ slot['status'] }}
+                        </div>
+
+                    </div>
+
+                {% endfor %}
+
+            </div>
+
+        </section>
+
+    </main>
+
+</body>
+
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Parking Payment</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<header>
+
+    <h1>Modern Parking System</h1>
+
+    <p>Parking Payment</p>
+
+</header>
+
+
+<main>
+
+    <div class="form-container">
+
+        <h2>Payment Details</h2>
+
+        <p>
+            <strong>Vehicle:</strong>
+            {{ plate_number }}
+        </p>
+
+        <p>
+            <strong>Parking Slot:</strong>
+            {{ slot_number }}
+        </p>
+
+        <p>
+            <strong>Entry Time:</strong>
+            {{ entry_time }}
+        </p>
+
+        <p>
+            <strong>Exit Time:</strong>
+            {{ exit_time }}
+        </p>
+
+        <p>
+            <strong>Duration:</strong>
+            {{ duration_minutes }} minutes
+        </p>
+
+        <hr>
+
+        <h2>
+            Amount Due:
+            KSh {{ fee }}
+        </h2>
+
+
+        <form method="POST"
+              action="{{ url_for('make_payment') }}">
+
+            <input
+                type="hidden"
+                name="parking_record_id"
+                value="{{ parking_record_id }}"
+            >
+
+
+            <div class="form-group">
+
+                <label for="payment_method">
+                    Payment Method
+                </label>
+
+                <select
+                    name="payment_method"
+                    id="payment_method"
+                    required
+                >
+
+                    <option value="">
+                        -- Select Payment Method --
+                    </option>
+
+                    <option value="M-Pesa">
+                        M-Pesa
+                    </option>
+
+                    <option value="Card">
+                        Card
+                    </option>
+
+                    <option value="Cash">
+                        Cash
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="transaction_reference">
+                    Transaction Reference
+                </label>
+
+                <input
+                    type="text"
+                    name="transaction_reference"
+                    id="transaction_reference"
+                    placeholder="e.g. MPESA12345"
+                >
+
+            </div>
+
+
+            <button type="submit">
+                Confirm Payment
+            </button>
+
+        </form>
+
+    </div>
+
+</main>
+
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Vehicle Exit</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <header>
+        <h1>Modern Parking System</h1>
+        <p>Vehicle Exit</p>
+    </header>
+
+    <main>
+
+        <div class="form-container">
+
+            <h2>Vehicle Exit</h2>
+
+            <form method="POST">
+
+                <div class="form-group">
+
+                    <label for="plate_number">
+                        Vehicle Registration Number
+                    </label>
+
+                    <input
+                        type="text"
+                        id="plate_number"
+                        name="plate_number"
+                        placeholder="e.g. KDA 123A"
+                        required
+                    >
+
+                </div>
+
+                <button type="submit">
+                    Calculate Parking Fee
+                </button>
+
+            </form>
+
+            <br>
+
+            <a href="{{ url_for('dashboard') }}">
+                ← Back to Dashboard
+            </a>
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>

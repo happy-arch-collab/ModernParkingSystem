@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Parking Receipt</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <header>
+        <h1>Modern Parking System</h1>
+        <p>Parking Receipt</p>
+    </header>
+
+    <main>
+
+        <div class="form-container">
+
+            <h2>Parking Receipt</h2>
+
+            <p>
+                <strong>Vehicle:</strong>
+                {{ plate_number }}
+            </p>
+
+            <p>
+                <strong>Parking Slot:</strong>
+                {{ slot_number }}
+            </p>
+
+            <p>
+                <strong>Entry Time:</strong>
+                {{ entry_time }}
+            </p>
+
+            <p>
+                <strong>Exit Time:</strong>
+                {{ exit_time }}
+            </p>
+
+            <p>
+                <strong>Duration:</strong>
+                {{ duration_minutes }} minutes
+            </p>
+
+            <hr>
+
+            <h2>
+                Amount Due: KSh {{ fee }}
+            </h2>
+
+            <p>
+                Please proceed to payment.
+            </p>
+
+            <a href="{{ url_for('dashboard') }}">
+                ← Back to Dashboard
+            </a>
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>

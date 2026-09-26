@@ -1,0 +1,157 @@
+MODERN PARKING SYSTEM
+DATABASE DESIGN
+
+========================================
+1. DATABASE USED
+========================================
+
+The Modern Parking System uses SQLite as its
+relational database management system.
+
+The database stores information about vehicles,
+parking slots, parking records, payments,
+parking rates, and the exit barrier.
+
+
+========================================
+2. MAIN DATABASE TABLES
+========================================
+
+1. vehicles
+   Stores vehicle information.
+
+2. parking_slots
+   Stores parking slot numbers and their
+   availability status.
+
+3. parking_records
+   Stores vehicle entry, exit, parking fee,
+   and parking status.
+
+4. payments
+   Stores payment transaction information.
+
+5. parking_rates
+   Stores parking fee rate information.
+
+6. exit_barrier
+   Stores exit barrier information.
+
+
+========================================
+3. TABLE STRUCTURES
+========================================
+
+VEHICLES
+
+id
+   Unique vehicle ID.
+
+plate_number
+   Vehicle registration number.
+
+vehicle_type
+   Type of vehicle.
+
+
+PARKING_SLOTS
+
+id
+   Unique parking slot ID.
+
+slot_number
+   Parking slot number.
+
+status
+   Shows whether the slot is Available
+   or Occupied.
+
+
+PARKING_RECORDS
+
+id
+   Unique parking record ID.
+
+vehicle_id
+   Identifies the vehicle.
+
+slot_id
+   Identifies the parking slot.
+
+entry_time
+   Time the vehicle entered the parking area.
+
+exit_time
+   Time the vehicle left the parking area.
+
+fee
+   Parking fee charged to the vehicle.
+
+status
+   Shows the current status of the parking
+   record.
+
+
+PAYMENTS
+
+id
+   Unique payment ID.
+
+parking_record_id
+   Identifies the related parking record.
+
+amount
+   Amount paid.
+
+payment_time
+   Time the payment was made.
+
+status
+   Shows the payment status.
+
+
+========================================
+4. DATABASE RELATIONSHIPS
+========================================
+
+The main relationships are:
+
+vehicles -> parking_records
+
+A vehicle can have multiple parking records
+over time.
+
+parking_slots -> parking_records
+
+A parking slot can be used by different
+vehicles at different times.
+
+parking_records -> payments
+
+A parking record is associated with its
+payment information.
+
+vehicle_id connects the vehicles table with
+the parking_records table.
+
+slot_id connects the parking_slots table with
+the parking_records table.
+
+parking_record_id connects the parking_records
+table with the payments table.
+
+
+========================================
+5. PURPOSE OF THE DATABASE
+========================================
+
+The database allows the system to:
+
+1. Store vehicle information.
+2. Track available and occupied parking slots.
+3. Record vehicle entry and exit.
+4. Store parking fees.
+5. Record payments.
+6. Maintain parking history.
+7. Update parking slot availability after
+   a vehicle exits.

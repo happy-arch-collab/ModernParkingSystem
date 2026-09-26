@@ -1,0 +1,128 @@
+MODERN PARKING SYSTEM
+DATA STRUCTURES
+
+========================================
+1. INTRODUCTION
+========================================
+
+A data structure is a method of organizing and
+storing data so that it can be accessed and
+modified efficiently.
+
+The Modern Parking System uses variables,
+database rows, SQL query results, and relational
+database tables to manage parking information.
+
+
+========================================
+2. VARIABLES
+========================================
+
+Variables temporarily store information during
+program execution.
+
+Examples:
+
+plate_number
+    Stores the vehicle registration number.
+
+vehicle_type
+    Stores the type of vehicle.
+
+entry_time
+    Stores the vehicle entry date and time.
+
+exit_time
+    Stores the vehicle exit date and time.
+
+duration_minutes
+    Stores the parking duration in minutes.
+
+fee
+    Stores the calculated parking fee.
+
+payment_method
+    Stores the selected payment method.
+
+transaction_reference
+    Stores the payment reference.
+
+
+========================================
+3. DATABASE ROWS
+========================================
+
+The system uses Python's sqlite3 module to
+retrieve database records.
+
+A database row represents one record, such as
+a vehicle, parking slot, or parking session.
+
+Example:
+
+parking_record["slot_id"]
+
+This retrieves the slot ID associated with
+a parking record.
+
+
+========================================
+4. SQL QUERY RESULTS
+========================================
+
+SQL queries retrieve information from the
+database.
+
+Examples:
+
+- Find available parking slots.
+- Check whether a vehicle is already parked.
+- Find a vehicle's active parking record.
+- Retrieve a record awaiting payment.
+- Count available and occupied parking slots.
+
+The program uses fetchone() to retrieve one row
+and fetchall() to retrieve multiple rows.
+
+
+========================================
+5. RELATIONAL DATABASE TABLES
+========================================
+
+The system uses SQLite tables to store data
+persistently.
+
+Main tables:
+
+1. vehicles
+   Stores vehicle details.
+
+2. parking_slots
+   Stores parking slot numbers and statuses.
+
+3. parking_records
+   Stores vehicle entry, exit, fee, and status.
+
+4. payments
+   Stores payment transaction details.
+
+5. exit_barrier
+   Stores exit barrier information.
+
+6. parking_rates
+   Stores parking rate information.
+
+
+========================================
+6. IMPORTANCE OF DATA STRUCTURES
+========================================
+
+The data structures help the system to:
+
+1. Store vehicle and parking information.
+2. Retrieve available parking slots.
+3. Track vehicle entry and exit.
+4. Calculate parking fees.
+5. Maintain payment records.
+6. Update parking slot availability.
+7. Support the operation of the parking system.
